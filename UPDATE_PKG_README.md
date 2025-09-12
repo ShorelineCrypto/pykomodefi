@@ -72,10 +72,10 @@ poetry publish -r testpypi
 
 ```bash
 # Test install from TestPyPI
-pip install --index-url https://test.pypi.org/simple/ --extra-index-url https://pypi.org/simple/ pykomodefi==0.2.5
+pip install --index-url https://test.pypi.org/simple/ --extra-index-url https://pypi.org/simple/ pykomodefi==0.2.6
 ```
 
-Replace `0.2.5` with your current version number.
+Replace `0.2.6` with your current version number.
 
 ### 4. Publish to Real PyPI
 
@@ -90,15 +90,15 @@ Ensure you have authentication set up (see "Authentication Setup" section above)
 ### 7. Verify the Upload
 
 - Check [pypi.org/project/pykomodefi/](https://pypi.org/project/pykomodefi/)
-- Test installation: `pip install pykomodefi==0.2.5`
+- Test installation: `pip install pykomodefi==0.2.6`
 - Verify the new version appears correctly
 
 ### 8. Tag the Release in Git
 
 ```bash
 git add .
-git commit -m "Release v0.2.5: Update to Python 3.12, latest dependencies"
-git tag v0.2.5
+git commit -m "Release v0.2.6: Adds `get_enabled_coins_v2`"
+git tag v0.2.6
 git push origin main --tags
 ```
 
@@ -142,6 +142,7 @@ Before publishing, ensure:
 
 ## Version History
 
+- `0.2.6`: Adds `get_enabled_coins_v2`
 - `0.2.5`: Updated to Python 3.12, latest dependencies, improved test setup
 - `0.2.4`: Previous stable version
 

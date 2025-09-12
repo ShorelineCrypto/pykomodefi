@@ -12,7 +12,11 @@ class KomoDeFi_API:
     def rpc(self, method: str, params: dict = dict(), v2: bool = False):
         try:
             if v2:
-                body = {"mmrpc": "2.0", "params": params}
+                # Workaround for https://github.com/KomodoPlatform/komodo-defi-framework/pull/2612
+                if method in ["get_enabled_coins"]:
+                    body = {"mmrpc": "2.0"}
+                else:
+                    body = {"mmrpc": "2.0", "params": params}
             elif params:
                 body = params
             else:
@@ -140,6 +144,15 @@ class KomoDeFi_API:
     def enabled_coins(self):
         r = self.rpc("get_enabled_coins")
         if "result" in r:
+            return r["result"]
+        return r
+    
+    @property
+    def enabled_coins_v2(self):
+        r = self.rpc("get_enabled_coins", v2=True)
+        if "result" in r:
+            if "coins" in r["result"]:
+                return [i['ticker'] for i in r["result"]["coins"]]
             return r["result"]
         return r
 

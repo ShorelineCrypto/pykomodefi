@@ -138,6 +138,13 @@ The following methods are available as properties of the `KomoDeFi_API` class. T
          "ticker": "ETH"
       }
    ]
+
+   >>> dexapi.enabled_coins_v2
+   [
+      "MARTY",
+      "AAVE-PLG20",
+      "DOGE"
+   ]
 ```
 
 For documentation about available methods and parameters, refer to: <https://developers.komodoplatform.com/basic-docs/atomicdex/introduction-to-atomicdex.html>
@@ -157,7 +164,7 @@ Some configuration params from within `MM2.json` are also available as propertie
 ### Building locally
 
 - Run `poetry build`
-- Run `pipx install --spec $(pwd)/dist/pykomodefi-0.2.5.tar.gz pykomodefi --include-deps --force` (change version number accordingly)
+- Run `pipx install --spec $(pwd)/dist/pykomodefi-0.2.6.tar.gz pykomodefi --include-deps --force` (change version number accordingly)
 
 ### Running tests
 
